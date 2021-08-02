@@ -32,7 +32,7 @@ public class CustomBeanPostProcessorTest implements BeanPostProcessor {
 //        }
 
         if(bean instanceof LifeCycleDemoBeanTest){
-            ((LifeCycleDemoBean) bean).afterInit();
+            ((LifeCycleDemoBeanTest) bean).afterInit();
         }
 
         return bean;
