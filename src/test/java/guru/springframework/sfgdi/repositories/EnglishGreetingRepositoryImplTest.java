@@ -1,26 +1,21 @@
 package guru.springframework.sfgdi.repositories;
-
-import guru.springframework.sfgdi.SfgDiApplication;
 import guru.springframework.sfgdi.controllers.I18nController;
-import guru.springframework.sfgdi.controllers.PetController;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ApplicationContext;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
+@ActiveProfiles({"EN", "default"})
 class EnglishGreetingRepositoryImplTest {
+    @Autowired
     I18nController i18nController;
 
-    @BeforeEach
-    void setUp() {
-        ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
-        i18nController = (I18nController) ctx.getBean("i18nController");
-    }
 
     @Test
     void getGreeting() {
+
         assertEquals("Hello World - EN",i18nController.sayHello());
     }
 }
